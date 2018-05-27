@@ -12,7 +12,7 @@
     
     
     
-    <title>archive_a | い海棠花未眠</title>
+    <title>Spring | い海棠花未眠</title>
     <link href=”https://joypigg.github.io“ rel=”prefetch” />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -122,7 +122,7 @@
                 
                 
                 
-                <li class="current">
+                <li class="">
                     <a href="/archives">
                         <i class="fa fa-archive"></i>归档
                     </a>
@@ -197,19 +197,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    <article class="article well article-body" id="article-archive">
+                    
+<article class="article well article-body" id="article">
     <div class="breadcrumb">
         <i class="fa fa-home"></i>
         <a href="https://joypigg.github.io">い海棠花未眠</a>
         >
-        <span>归档</span>
+        <span>Spring</span>
     </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/archives">归档</a>
+                <a href="/Spring/">Spring</a>
             </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Spring/">Spring</a>, 
+                
+                <a href="/tags/JPA/">JPA</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2018-05-27
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -217,31 +238,88 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/archives">归档</a>
+                    <a href="/Spring/">Spring</a>
                 </h4>
             </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2018-05-27
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/Spring/">Spring</a>, 
+                
+                <a href="/tags/JPA/">JPA</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
         </center>
     </div>
-    <div class="content-article" style="margin-top: 30px;">
-        
-        
-            <h1 style="font-size: 24px; margin-top: 40px;">2018年</h1>
-            
-        <div class="alert alert-info" style="font-size: 14px; line-height: 2; font-weight: bold;">
-            
-             
-             
-                        <a href="/Spring/">Spring</a>
-                        <br>
-            
-             
-                        <a href="/hello-world/">Hello World</a>
-                        <br>
-            
-                    </div>
-        
+    <div class="content-article">
+        <p>##Spring</p>
+<p>[TOC]</p>
+<p>###注解</p>
+<p>###@Scheduled<br>实现定时任务</p>
+<blockquote>
+<ol>
+<li>applicationContext.xml中配置：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--配置任务线程池--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">task:executor</span>	<span class="attr">pool-size</span>=<span class="string">"10"</span>	<span class="attr">queue-capacity</span>=<span class="string">"10000"</span> <span class="attr">rejection-policy</span>=<span class="string">"CALLER_RUNS"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">task:scheduler</span>	<span class="attr">id</span>=<span class="string">"scheduler"</span>	<span class="attr">pool-size</span>=<span class="string">"10"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--配置annotation启动方式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">task:annotation-driven</span>	<span class="attr">executor</span>=<span class="string">"executor"</span>	<span class="attr">scheduler</span>=<span class="string">"scheduler"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>2.实现方法前添加注解@Scheduled(cron=”0 10 <em> </em> * ?”)</p>
+</blockquote>
+<ul>
+<li><code>@Scheduled</code>应该写在实现上；</li>
+<li>注入方法不能有返回值；</li>
+<li>实现类上要有<code>@Component</code>注解；</li>
+<li><code>cron</code>参数</li>
+</ul>
+<p>###JPA<br><strong>Java对象持久化规范</strong></p>
+<ol>
+<li>Hibernate作为Jboss服务器中JPA的默认实现；</li>
+<li>Oracle的Weblogic使用EclipseLink(以前叫TopLink)作为默认的JPA实现；</li>
+<li>IBM的Websphere和Sun的Glassfish默认使用OpenJPA(Apache的一个开源项目)作为其默认的JPA实现</li>
+<li>是java实体bean到关系型数据库的规范</li>
+</ol>
+<p><strong>配置文件</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">persistence</span> <span class="attr">version</span>=<span class="string">"1.0"</span> <span class="attr">xmlns</span>=<span class="string">"http://java.sun.com/xml/ns/persistence"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">persistence-unit</span> <span class="attr">name</span>=<span class="string">"持久化单元名"</span> <span class="attr">transaction-type</span>=<span class="string">"JTA"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">jta-data-source</span>&gt;</span>使用JCA部署在javaEE服务器上的数据源JNDI<span class="tag">&lt;/<span class="name">jta-data-source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">！--指定JPA实现提供者，不指定就采用JavaEE服务器默认的JPA提供者，这里以OpenJPA为例--</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">provider</span>&gt;</span>org.apache.openjpa.persistence.PersistenceProviderImpl<span class="tag">&lt;/<span class="name">provider</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">class</span>&gt;</span>实体bean全路径名<span class="tag">&lt;/<span class="name">class</span>&gt;</span></span><br><span class="line">……</span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">              <span class="comment">&lt;!--配置JPA实现提供者的一些信息--&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">persistence-unit</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">persistence</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以在持久化策略文件中配置多个持久化单元persistence-unit，在使用分布式数据库时经常配置多个持久化单元</p>
+<p>###实体Bean的开发</p>
+<ol>
+<li>实体Bean上添加<code>@Entity</code>注解，表示其为实体Bean</li>
+<li>实体Bean必须序列化</li>
+<li><code>@Table(name=&quot;数据库表名&quot;</code>注解，标识映射到数据库的的表名</li>
+<li>必须有一个<code>@ID</code>标识的主键，<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ID</span></span><br><span class="line"><span class="meta">@Column</span>(name=<span class="string">"列名"</span>)</span><br><span class="line"><span class="meta">@GeneratedValue</span>(Strategy=GenerationType.Auto)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>支持字段注解(变量)、属性注解(set/get方法)；但在实体类中，不能混用；<br>| @Entity | @Table      | @ID  | @GeneratedValue              | @Column     |<br>| ——- | ———– | —- | —————————- | ———– |<br>| 空      | name=”表名” | 空   | strategy=GenerationType.AUTO | name=”列名” |</p>
+<p>###@Temporal<br>标注时间类型</p>
+<ol>
+<li>DATE</li>
+<li>TIME</li>
+<li>TIMESTAMP<br>###@Transient<br>bean中某一属性不想被映射至数据库<br>###@Lob<br>将属性持久化为Blob或者Clob类型，为大数据类型<br>###@Basic<br>是否延迟加载</li>
+<li>延迟加载：@Basic(fetch=FetchType.Lazy)</li>
+<li>非延迟加载：@Basic(fetch=FetchType.EAGER)</li>
+</ol>
+
     </div>
 </article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'Spring'
+    }
+</script>
+
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
     <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
@@ -358,21 +436,21 @@
         <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
             <ul class="nav nav-pills pills-gal">
                 <li class="">
-                    <a href="/archives/2018/05/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/Spring/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2018/05/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/Spring/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 <li class="">
-                    <a href="/archives/2018/05/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/Spring/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/Spring/" style="font-size: 18.435180414841668px;" class="tag-cloud-link">Spring</a>
+    <a href="/tags/Spring/" style="font-size: 19.160273127094705px;" class="tag-cloud-link">Spring</a>
     
-    <a href="/tags/JPA/" style="font-size: 19.106090377439678px;" class="tag-cloud-link">JPA</a>
+    <a href="/tags/JPA/" style="font-size: 18.075928787546623px;" class="tag-cloud-link">JPA</a>
     
 </div>
                 <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
@@ -487,7 +565,7 @@
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = ''
+      window.commentConfig.id = 'Sun May 27 2018 14:10:19 GMT+0800'
       window.commentConfig.owner = 'Joypigg'
       window.commentConfig.repo = 'Joypigg.github.io'
       window.commentConfig.client_id = '6e9ff0a00560e1852c46'
@@ -495,7 +573,7 @@
       window.commentConfig.redirect_uri = 'https://joypigg.github.io/'
     } else {
       window.commentConfig = {
-      	id: '',
+      	id: 'Sun May 27 2018 14:10:19 GMT+0800',
         owner: 'Joypigg',
         repo: 'Joypigg.github.io',
         client_id: '6e9ff0a00560e1852c46',
